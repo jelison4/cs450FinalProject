@@ -27,9 +27,10 @@ filenames = filenames.drop(["genre_id"], axis=1)
 
 data_x = pd.DataFrame()
 
-for i in filenames.iterrows():
-    print(i[])
-    #songSample = read_csv(filename[0], skiprows = 30, nrows = 50)
+for index, row in filenames.iterrows():
+    songfilename = row["filename"]
+    print(songfilename)
+    #songSample = read_csv(songfilename, skiprows = 30, nrows = 50)
     #songSample.drop([1,2], axis=1)
 
 # Split the data
