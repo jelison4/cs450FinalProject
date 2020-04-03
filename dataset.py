@@ -2,7 +2,7 @@
 # files into one structure, ready to be used in a
 # SK-learn classifier.
 
-from mido import MidiFile
+import pandas as pd
 from pandas import read_csv, DataFrame
 from sklearn.model_selection import train_test_split
 
@@ -17,14 +17,22 @@ data = []
 
 for filename, composer, genre_id in zip(csv_data.filename, csv_data.composer, csv_data.genre_id):
     data.append(
-        [MidiFile("data/" + composer + "/" + filename), # the filename
+        ["csvData/" + composer + "/" + filename[:-4]+".csv", # the filename
         genre_id]) # the genre
 
-data_x = data[0]
-data_y = data[1]
+filenames = pd.DataFrame(data, columns = ["filename", "genre_id"])
+data_y = filenames.drop(["filename"], axis=1)
+
+filenames = filenames.drop(["genre_id"], axis=1)
+
+data_x = pd.DataFrame()
+
+for i in filenames.iterrows():
+    print(i[])
+    #songSample = read_csv(filename[0], skiprows = 30, nrows = 50)
+    #songSample.drop([1,2], axis=1)
 
 # Split the data
-x_train, x_test, y_train, y_test = train_test_split(
-    data_x, data_y, test_size = 0.3
-)
-
+#x_train, x_test, y_train, y_test = train_test_split(
+#    data_x, data_y, test_size = 0.3
+#)
