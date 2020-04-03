@@ -2,7 +2,6 @@
 # files into one structure, ready to be used in a
 # SK-learn classifier.
 
-from mido import MidiFile
 from pandas import read_csv, DataFrame
 from sklearn.model_selection import train_test_split
 
