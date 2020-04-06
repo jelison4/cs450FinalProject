@@ -1,5 +1,4 @@
 from sklearn.ensemble import RandomForestClassifier
-from mido import MidiFile
 import dataset
 
 def test_model(model, x_test, y_test):
@@ -15,7 +14,7 @@ def test_model(model, x_test, y_test):
     print("\t{} objects tested. Total accuracy: {:.2f}%".format(
     total, accuracy / total * 100))
 
-#classifier = RandomForestClassifier()
-#classifier.fit(dataset.x_train, dataset.y_train)
+classifier = RandomForestClassifier()
+classifier.fit(dataset.x_train, dataset.y_train)
 
-#test_model(classifier, dataset.x_test, dataset.y_test)
+test_model(classifier, dataset.x_test, dataset.y_test)
