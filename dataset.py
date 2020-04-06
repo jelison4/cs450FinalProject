@@ -9,21 +9,22 @@ from sklearn.model_selection import train_test_split
 names = ["filename", "composer", "genre_id"]
 
 csv_data = read_csv(
-    'metadata.csv',
+    "metadata.csv",
     names = names,
     sep=",")
 
 data = []
 
 for filename, composer, genre_id in zip(csv_data.filename, csv_data.composer, csv_data.genre_id):
-    new_filename = "csvData/" + composer + "/" + filename[:-4]+".csv" # the filename
+    new_filename = "cleanCsv/" + composer + "/" + filename[:-4]+".csv" # the filename
     data.append([new_filename, genre_id]) # the genre
 
-    print(new_filename)
-    songSample = read_csv(new_filename, skiprows = 30, nrows = 50)
-    songSample.drop([1,2], axis=1)
+    #print(new_filename)
+    songSample = read_csv(new_filename)
+    #songSample.drop([1,2], axis=1)
 
 # Split the data
-x_train, x_test, y_train, y_test = train_test_split(
-   data_x, data_y, test_size = 0.3
-)
+#x_train, x_test, y_train, y_test = train_test_split(
+#   data_x, data_y, test_size = 0.3
+#)
+

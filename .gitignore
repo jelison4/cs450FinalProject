@@ -3,4 +3,5 @@ data
 csvData
 midicsv.exe
 settings.json
+cleanCsv
 __pycache__
