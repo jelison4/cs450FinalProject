@@ -26,9 +26,10 @@ for filename, composer, genre_id in zip(csv_data.filename, csv_data.composer, cs
     data_y.append(genre_id)
 
     #print(new_filename)
-    colnames = ["track", "junk", "junk1", "note", "note1", "note2"]
-    songSample = read_csv(new_filename, names=colnames)
-    data_x.append(songSample.drop(columns=["junk", "junk1"]))
+    songSample = read_csv(new_filename, skiprows=5, nrows=3)
+
+    #songSample.applymap(float)
+    data_x.append(songSample)
 
 
 

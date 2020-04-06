@@ -8,7 +8,7 @@ def filter(composer, filename):
             writer = csv.writer(outFile)
             for row in reader:
                 if (len(row) == 6):
-                    writer.writerow(row)
+                    writer.writerow(row[3:])
 
 
 names = ["filename", "composer", "genre_id"]
